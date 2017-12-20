@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../fsc.props" />
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Schemata\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PushPort.fs" />
+    <Compile Include="Receiver.fs" />
+    <Compile Include="Program.fs" />
+    <None Include="Schemata\rttiPPTSchema_v12.xsd" />
+    <PackageReference Include="Apache.NMS.Stomp" Version="1.5.4" />
+    <PackageReference Include="Apache.NMS.ActiveMQ" Version="1.7.2" />
+    <PackageReference Include="FSharp.Data.Xsd" Version="1.0.2" />
+    <None Include="Schemata\rttiCTTReferenceSchema_v3.xsd" />
+    <None Include="Schemata\rttiCTTSchema_v8.xsd" />
+    <None Include="Schemata\rttiPPTAlarms_v1.xsd" />
+    <None Include="Schemata\rttiPPTCommonTypes_v1.xsd" />
+    <None Include="Schemata\rttiPPTForecasts_v2.xsd" />
+    <None Include="Schemata\rttiPPTSchedules_v1.xsd" />
+    <None Include="Schemata\rttiPPTStationMessages_v1.xsd" />
+    <None Include="Schemata\rttiPPTStatus_v1.xsd" />
+    <None Include="Schemata\rttiPPTTDData_v1.xsd" />
+    <None Include="Schemata\rttiPPTTrainAlerts_v1.xsd" />
+    <None Include="Schemata\rttiPPTTrainOrder_v1.xsd" />
+    <PackageReference Include="FSharp.Control.Reactive" Version="3.5.0" />
+  </ItemGroup>
+</Project>
