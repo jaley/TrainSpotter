@@ -45,8 +45,8 @@ type TrainStatus = {Rid: string;
                     Ssd: DateTime; 
                     Tiplocs: List<Location>} with
     static member FromXml (ts: RttiPpt.Ts) =
-        {Rid = ts.Rid; 
-         Ssd = ts.Ssd; 
+        {Rid     = ts.Rid; 
+         Ssd     = ts.Ssd; 
          Tiplocs = ts.Locations 
                    |> Array.map (Location.FromXml ts.Ssd) 
                    |> Array.toList}

@@ -6,7 +6,7 @@ open System.Threading
 open FSharp.Control.Reactive
 
 let messageSink msg =
-    printfn "Message: %A" msg
+    ()
 
 let errorSink err =
     printfn "Error: %A" err
@@ -27,8 +27,15 @@ let main argv =
 
     conn.Start()
 
+    let cts = new CancellationTokenSource()
     use mre = new ManualResetEventSlim(false)
-    let sub = System.Console.CancelKeyPress.Add(fun _ -> mre.Set())
+    let doCancel _ =
+        do cts.Cancel()
+           mre.Set()
+
+    let sub = System.Console.CancelKeyPress.Add(doCancel)
+
+    Web.startServer cts
 
     printfn "Waiting for interrupt to exit."
     mre.Wait()

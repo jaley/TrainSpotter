@@ -10,6 +10,7 @@
   <ItemGroup>
     <Compile Include="PushPort.fs" />
     <Compile Include="Receiver.fs" />
+    <Compile Include="Web.fs" />
     <Compile Include="Program.fs" />
     <None Include="Schemata\rttiPPTSchema_v12.xsd" />
     <PackageReference Include="Apache.NMS.Stomp" Version="1.5.4" />
@@ -27,5 +28,6 @@
     <None Include="Schemata\rttiPPTTrainAlerts_v1.xsd" />
     <None Include="Schemata\rttiPPTTrainOrder_v1.xsd" />
     <PackageReference Include="FSharp.Control.Reactive" Version="3.5.0" />
+    <PackageReference Include="Suave" Version="2.2.1" />
   </ItemGroup>
 </Project>
