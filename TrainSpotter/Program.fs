@@ -17,9 +17,13 @@ let completed () =
 [<EntryPoint>]
 let main argv =
 
-    let conn = Receiver.connect "activemq:tcp://datafeeds.nationalrail.co.uk:61616" "d3user" "d3password"
+    let user = "TODO"
+    let pass = "TODO"
+    let queueId = "TODO"
 
-    let pipeline = Receiver.openQueue "D3917834da-5cbc-42e3-8e28-ae97cfa31afd" conn
+    let conn = Receiver.connect "activemq:tcp://datafeeds.nationalrail.co.uk:61616" user pass
+
+    let pipeline = Receiver.openQueue queueId conn
                    |> Observable.map PushPort.unpackPportMsg
                    |> Observable.choose id
                    |> Observable.map PushPort.asDarwinMessages
